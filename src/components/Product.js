@@ -2,7 +2,7 @@ import React from "react";
 
 function Product() {
   return (
-    <>
+    <div>
       <div className="contactus">
         <div className="container-fluid">
           <div className="row">
@@ -162,7 +162,7 @@ function Product() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
