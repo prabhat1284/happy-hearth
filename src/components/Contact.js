@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function Contact() {
   const [enteredName, setEnteredName] = useState("");
@@ -23,6 +24,7 @@ function Contact() {
   };
 
   const submitHandler = (event) => {
+    const url = "http://localhost:4000/webapi/contact";
     event.preventDefault();
 
     const contactData = {
@@ -32,6 +34,16 @@ function Contact() {
       message: enteredMessage,
     };
     console.log(contactData);
+    axios.post(url, contactData).then((res) => {
+      console.log(res);
+      if (res.data.response === "success") {
+        alert("Message Sent Successfully. Thank You");
+      }
+    });
+    setEnteredName("");
+    setEnteredEmail("");
+    setEnteredPhone("");
+    setEnteredMessage("");
   };
   return (
     <div>
